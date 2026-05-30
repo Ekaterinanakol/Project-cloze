@@ -13,11 +13,11 @@ def display_text_with_gaps(quiz_text):
     
 def clean_tokens (formatted_text):
     answers = []
-    for i in range(len(cleaned_tokens)):
+    for i in range(len(formatted_text)):
         if (i+1) == 10:
             answers += i
-            cleaned_tokens[i] = "___"
-            task = " ".join(cleaned_tokens)
+            formatted_text[i] = "___"
+            task = " ".join(formatted_text)
     return task, answers
     
 def get_answers(num_gaps):
@@ -33,3 +33,5 @@ def calculate_correct_answers(user_answers, correct_answers):
         if user_answers[answer] == correct_answers[answer]:
             result+=1
     return result
+
+tokenize_file
