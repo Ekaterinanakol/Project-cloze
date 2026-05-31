@@ -25,8 +25,13 @@ def display_text_with_gaps(quiz_text):
 def get_answers(num_gaps):
     answers = []
     for i in range(num_gaps):
-        answer = input(f"Ответ для пропуска {i + 1}: ").strip()
-        answers.append(answer)
+        while True:
+            answer = input(f"Ответ для пропуска {i + 1}: ").strip()
+            if re.search(r'[a-zA-Z]', answer): #используем re.search, потому что вывод: None или не None
+               answers.append(answer)
+               break
+            else:
+                print("Вводите ответы на английском языке")
     return answers
 
 def calculate_correct_answers(user_answers, correct_answers):
@@ -46,3 +51,9 @@ display_text_with_gaps(words_with_gaps)
 user_answers = get_answers(len(correct))
 score = calculate_correct_answers(user_answers, correct)
 print(f"\nРезультат: {score}/{len(correct)}")
+if score <5:
+  print("Вам надо уделять английскому больше времени")
+elif score <8:
+    print("Хороший результат!")
+else:
+    print("Вы молодец!")
