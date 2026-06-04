@@ -35,10 +35,8 @@ def get_answers(num_gaps):
     return answers
 
 def calculate_correct_answers(user_answers, correct_answers):
-    if len(user_answers) != len(correct_answers):
-        print("Количество ответов не совпадает")
     result = 0
-    for i in range(min(len(correct_answers), len(user_answers))):
+    for i in range(len(correct_answers)):
         if user_answers[i] == correct_answers[i]:
             result += 1
     return result
